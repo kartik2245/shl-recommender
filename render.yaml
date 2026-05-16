@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shl-recommender
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # set in Render dashboard (secret)
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GROQ_FALLBACK_MODEL
+        value: llama-3.1-8b-instant
+      - key: LLM_TIMEOUT_S
+        value: "8.0"
+      - key: CATALOG_PATH
+        value: data/catalog.json
