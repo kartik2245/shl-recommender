@@ -91,7 +91,7 @@ class Catalog:
         # Dense index -- L2-normalized embeddings -> cosine via dot product.
         encoder = _load_encoder()
         texts = [it.to_search_text() for it in items]
-        emb = encoder.encode(texts, batch_size=32, show_progress_bar=False, normalize_embeddings=True)
+        emb = encoder.encode(texts, batch_size=8, show_progress_bar=False, normalize_embeddings=True)
         self._embeddings: np.ndarray = np.asarray(emb, dtype=np.float32)
         self._encoder = encoder
 

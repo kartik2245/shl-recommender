@@ -18,6 +18,8 @@ from .schemas import ChatRequest, ChatResponse, HealthResponse
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("shl-recommender")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 CATALOG_PATH = Path(os.getenv("CATALOG_PATH", "data/catalog.json"))
 
